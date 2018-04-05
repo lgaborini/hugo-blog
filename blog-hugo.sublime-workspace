@@ -1,0 +1,1576 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"extract",
+				"extractPeakDelayDatasetFromPath\t(script_extract_curves_splines.m)"
+			],
+			[
+				"R",
+				"R_markdown\tR markdown with inline R"
+			],
+			[
+				"eule",
+				"euler_skel_thin"
+			],
+			[
+				"n_ee",
+				"n_keep_default"
+			],
+			[
+				"alread_",
+				"already_matched_db_idx"
+			],
+			[
+				"already_",
+				"already_matched_idx"
+			],
+			[
+				"groups.train",
+				"groups.train.Hp"
+			],
+			[
+				"idx.recovere",
+				"idx.recovered.diff\t(lucy_aitken_comparison_correctedexample.R)"
+			],
+			[
+				"two",
+				"two.level.comparison.items\t(two.level.normal.LR.r)"
+			],
+			[
+				"compute",
+				"compute_LR_distributions.h\t(compute_LR_Rcpp.cpp)"
+			],
+			[
+				"dmv",
+				"dmvnorm_arma"
+			],
+			[
+				"deno",
+				"denominator_mean"
+			],
+			[
+				"denominator",
+				"denominator_log"
+			],
+			[
+				"Marqui",
+				"Marquis2005Quantification"
+			],
+			[
+				"Montani",
+				"M Montani2015Exploring: Exploring transparent approaches to the authentication of signatures on artwork"
+			],
+			[
+				"b_ShowBouc",
+				"b_ShowBouclesWithNames"
+			],
+			[
+				"is_in",
+				"is_in_half_cone"
+			],
+			[
+				"n_k",
+				"n_keypoints_this"
+			],
+			[
+				"angles_",
+				"angles_theta_rad\t(signatureKeypoints.m)"
+			],
+			[
+				"angle_triplet",
+				"angle_triplets\t(signatureKeypoints.m)"
+			],
+			[
+				"my",
+				"mydefNoCR"
+			],
+			[
+				"Monta",
+				"Montani2015Exploring\t(zotero.bib)"
+			],
+			[
+				"mydef",
+				"mydefNoCR"
+			],
+			[
+				"Latex",
+				"LaTeXTools"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Anaconda Python Builder",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				],
+				[
+					"Packages/SublimeREPL/sublimerepl_build_system_hack.sublime-build",
+					""
+				]
+			],
+			[
+				"Anaconda Python Builder",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Traditional"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Script Builder"
+				]
+			],
+			[
+				"Packages/LaTeXTools/LaTeX.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Traditional"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Script Builder"
+				],
+				[
+					"Packages/SublimeREPL/sublimerepl_build_system_hack.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/LaTeXTools/LaTeX.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/SublimeREPL/sublimerepl_build_system_hack.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/LaTeXTools/LaTeX.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Markdown Preview/Markdown.sublime-build",
+					""
+				],
+				[
+					"Packages/R-Box/support/R Markdown.sublime-build",
+					""
+				],
+				[
+					"Packages/SublimeREPL/sublimerepl_build_system_hack.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/R-Box/support/R Markdown.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/R/R.sublime-build",
+					""
+				],
+				[
+					"Packages/SendREPL/R - Source File.sublime-build",
+					""
+				],
+				[
+					"Packages/SublimeREPL/sublimerepl_build_system_hack.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/R/R.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/LaTeX_new.sublime-build",
+					""
+				],
+				[
+					"Packages/User/LaTeX_new.sublime-build",
+					"Bibtex"
+				],
+				[
+					"Packages/User/LaTeX_new.sublime-build",
+					"Bibtex & Nomencl"
+				],
+				[
+					"Packages/User/LaTeX_new.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/User/LaTeX_new.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/build-systems/LaTeX_new.sublime-build",
+					""
+				],
+				[
+					"Packages/User/build-systems/LaTeX_new.sublime-build",
+					"Bibtex"
+				],
+				[
+					"Packages/User/build-systems/LaTeX_new.sublime-build",
+					"Bibtex & Nomencl"
+				],
+				[
+					"Packages/User/build-systems/LaTeX_new.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/User/build-systems/LaTeX_new.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 147.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ww",
+				"Word Wrap: Toggle"
+			],
+			[
+				"hex",
+				"HexViewer: Toggle Hex View"
+			],
+			[
+				"pinst",
+				"Package Control: Install Package"
+			],
+			[
+				"upper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"gitgutter",
+				"GitGutter: Support Info"
+			],
+			[
+				"prem",
+				"Package Control: Remove Package"
+			],
+			[
+				"todo",
+				"TodoReview: Project Files"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"rmark",
+				"Snippet: R markdown with inline R"
+			],
+			[
+				"alignta",
+				"AlignTab: Table Mode"
+			],
+			[
+				"alignt",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"explore",
+				"File Manager: Open In Explorer"
+			],
+			[
+				"snippet",
+				"Snippet: R markdown with inline R"
+			],
+			[
+				"al",
+				"AlignTab"
+			],
+			[
+				"white",
+				"Trimmer: Trim trailing whitespace."
+			],
+			[
+				"align",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"rmarkd",
+				"Set Syntax: R Markdown"
+			],
+			[
+				"alp",
+				"Set Syntax: AppleScript"
+			],
+			[
+				"Snippet: rmark",
+				"Snippet: R markdown with inline R"
+			],
+			[
+				"Snippet: n",
+				"Snippet: R with inline markdown"
+			],
+			[
+				"dockerf",
+				"Set Syntax: Dockerfile"
+			],
+			[
+				"log ",
+				"Set Syntax: Log Highlight"
+			],
+			[
+				"log",
+				"Set Syntax: Log Highlight"
+			],
+			[
+				"pi",
+				"Package Control: Install Package"
+			],
+			[
+				"recent",
+				"File History: Open recently closed file… (All Projects)"
+			],
+			[
+				"loghig",
+				"Set Syntax: Log Highlight"
+			],
+			[
+				"loghigh",
+				"Set Syntax: Log Highlight"
+			],
+			[
+				"fuzz",
+				"FuzzyFilePath: Insert Relative Path"
+			],
+			[
+				"autofi",
+				"AutoFileName: Quick Settings"
+			],
+			[
+				"autofile",
+				"AutoFileName: Default Settings"
+			],
+			[
+				"pins",
+				"Package Control: Install Package"
+			],
+			[
+				"fuzzy",
+				"FuzzyFilePath: Show info"
+			],
+			[
+				"fuz",
+				"FuzzyFilePath: Rebuild cache"
+			],
+			[
+				"pena",
+				"Package Control: Enable Package"
+			],
+			[
+				"pdisa",
+				"Package Control: Disable Package"
+			],
+			[
+				"synrmark",
+				"Set Syntax: R Markdown"
+			],
+			[
+				"pdisable",
+				"Package Control: Disable Package"
+			],
+			[
+				"fzz",
+				"FuzzyFilePath: Show current settings"
+			],
+			[
+				"pin",
+				"FuzzyFilePath: Show info"
+			],
+			[
+				"syntax plai",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"filediff",
+				"FileDiffs: Menu"
+			],
+			[
+				"rma",
+				"Set Syntax: R Markdown"
+			],
+			[
+				"new raw",
+				"PackageDev: New Raw Snippet"
+			],
+			[
+				"plain",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"pdevsnipp",
+				"PackageDev: New Raw Snippet"
+			],
+			[
+				"packagedev",
+				"PackageDev: New Raw Snippet"
+			],
+			[
+				"filerece",
+				"File History: Open recently closed file… (All Projects)"
+			],
+			[
+				"gitigno",
+				"Gitignore: New gitignore"
+			],
+			[
+				"tmpl",
+				"Tmpl: Create html"
+			],
+			[
+				"filemanager",
+				"File Manager: Open Terminal"
+			],
+			[
+				"filemanatempl",
+				"File Manager: List Templates"
+			],
+			[
+				"terminal",
+				"Terminal: Open"
+			],
+			[
+				"ui:",
+				"UI: Select Color Scheme"
+			],
+			[
+				"theme",
+				"UI: Select Theme"
+			],
+			[
+				"readme",
+				"ReadmePlease"
+			],
+			[
+				"json",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"diff",
+				"FileDiffs: Menu"
+			],
+			[
+				"r",
+				"SublimeREPL: R"
+			],
+			[
+				"replr",
+				"SublimeREPL: R"
+			],
+			[
+				"repl",
+				"SendREPL: Choose REPL Program"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Discover Packages"
+			],
+			[
+				"Snippet: ",
+				"Snippet: Polygonal Line"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"ctv",
+				"Sublimerge: Compare to View..."
+			],
+			[
+				"xml",
+				"Set Syntax: XML"
+			],
+			[
+				"he",
+				"Hex Viewer: Toggle Hex View"
+			],
+			[
+				"latex",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"title",
+				"Convert Case: Title Case"
+			],
+			[
+				"merge",
+				"Sublimerge: Compare to View..."
+			],
+			[
+				"commi",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add Current File"
+			],
+			[
+				"git",
+				"Git: Init"
+			],
+			[
+				"menu",
+				"View: Toggle Menu"
+			],
+			[
+				"findkey",
+				"FindKeyConflicts: All Conflicts"
+			],
+			[
+				"ccas",
+				"Convert Case: Title Case"
+			],
+			[
+				"premov",
+				"Package Control: Remove Package"
+			],
+			[
+				"pl",
+				"Package Control: List Packages"
+			],
+			[
+				"pen",
+				"Package Control: Enable Package"
+			],
+			[
+				"sort",
+				"Sort Lines (Numerically)"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"xhtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"case",
+				"Convert Case: Title Case"
+			],
+			[
+				"syncing",
+				"Package Syncing: Define Sync Folder"
+			],
+			[
+				"alt",
+				"AlignTab: Live Preview Mode"
+			]
+		],
+		"width": 542.0
+	},
+	"console":
+	{
+		"height": 384.0,
+		"history":
+		[
+			"view.run_command(\"afn_show_filenames\")",
+			"afn_show_filenames",
+			"afn_show_filenames()",
+			"ls(win32gui.FindWindow)",
+			"doc(win32gui.FindWindow)",
+			"win32gui.FindWindow?",
+			"?win32gui.FindWindow",
+			"win32gui.FindWindow",
+			"help(win32gui.FindWindow)",
+			"win32gui.FindWindow(\"Qt5QWindowIcon\")",
+			"win32gui.FindWindow(\"Qt5QWindowIcon\", \"RStudio\")",
+			"import win32gui",
+			"win32gui.FindWindow(\"Qt5QWindowIcon\", \"RStudio\")",
+			"dir(window)",
+			"view.encoding()",
+			"22 + 11 + 7 + 8",
+			"dir(sublime)",
+			"sublime.command",
+			"dir()",
+			"toggle_side_bar",
+			"toggle.side_bar",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"mport urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Lorenzo/Dropbox/Local/Dev/blog"
+	],
+	"file_history":
+	[
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/data/signatures-expertise-splines-curves.json",
+		"/C/Users/Lorenzo/Downloads/andre_2/test_find_peaks.py",
+		"/C/Users/Lorenzo/Downloads/andre/andre.py",
+		"/C/Users/Lorenzo/Dropbox/Local/Dev/R/Fun-MOOC/MCA/data_MCA_Credoc.csv",
+		"/C/Users/Lorenzo/Downloads/andre_2/data_20180326",
+		"/C/Users/Lorenzo/Downloads/scenic-trail/k27-registration-list-02.02.2018.txt",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/extractPeakDelayDatasetFromSignatureImage.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/script_extract_curves_splines.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/doc/data_description.html",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/script_test_register_curves.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/extractPeakDelayDatasetFromPath.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/computeSmoothCurvature.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/doc/data_description.Rmd",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/filesplit.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/Contents.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/findCurvePathMathematica.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/findCurvePath.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/script_test_extract_curve.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/script_import_expertise_single_signatures.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/script_merge_expertise_signatures.m",
+		"/C/Users/Lorenzo/Downloads/linecurvature_version1b/LineNormals2D.m",
+		"/C/Users/Lorenzo/Downloads/linecurvature_version1b/LineCurvature2D.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/src/signatures/extractor/functions/setKeypointsFromTemplateAutoNew.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/src/signatures/extractor/functions/extractBoucleInteractive.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/script_extract_curves_images.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/script_import_expertise_splines.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/doc/peak_delay_model_preamble.tex",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/script_import_expertise_bezier.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/extractCurveDatasetFromSignatureImage.m",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/Git/Git.sublime-settings",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/extractCurveDatasetFromPath.m",
+		"/C/Work/UNIL_locale/soft/hugin8.6/test.log",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/src/signatures/extractor/functions/extractPointSurroundings.m",
+		"/C/Users/Lorenzo/Dropbox/Local/Dev/Misc/mongoDB-university/M101P/Ch1/hw1-3.py",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/Risorse/corsi/TP/2017-2018/MSc Interprétation de l'indice scientifique et prise de décision 2017-2018/calendrier_TP.Rmd",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/doc/peak_delay_model.bib",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/doc/peak_delay_model_preamble.Rmd",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/script_register_curves.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/extractCurveDatasetFromCurvature.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/extractCurveDataset.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/doc/peak_delay_model.html",
+		"/C/Users/Lorenzo/Dropbox/Local/Dev/R/github-snippets/snippets.R",
+		"/C/dataset/signatures/Signatures_Liv/fiches/4_summary.Rmd",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/doc/signature_code_sources.Rmd",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/doc/signature_formats.Rmd",
+		"/C/Users/Lorenzo/Downloads/gov_10a_exp/gov_10a_exp_1.tsv",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/src/signatures/extractor/functions/showSignatures.m",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/User/build-systems/R rmarkdown render (all formats).sublime-build",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/doc/peak_delay_model.log",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/doc/peak_delay_model.tex",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/doc/test.Rmd",
+		"/C/Users/Lorenzo/Dropbox/Local/Dev/Misc/mongoDB-university/Ch2/connect-lgaborini.bat",
+		"/C/Users/Lorenzo/Dropbox/Local/Dev/Misc/mongoDB-university/Ch2/connect.bat",
+		"/C/Users/Lorenzo/bin/mongo-path.bat",
+		"/C/Users/Lorenzo/bin/mongo-shell.bat",
+		"/C/Users/Lorenzo/bin/mongo-start.bat",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/Risorse/corsi/seguiti/SFG - typologie/typologie-résumé/cap_03_personnes_3_fluides_biologiques_ADN.Rmd",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/doc/code_sources.bib",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/Risorse/corsi/seguiti/SFG - typologie/typologie-résumé/cap_03_personnes_1_anthropometrie.Rmd",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/Risorse/corsi/seguiti/SFG - typologie/typologie-résumé/cap_03_personnes_2_lophoscopie.Rmd",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/Risorse/corsi/seguiti/SFG - typologie/typologie-résumé/cap_02.Rmd",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/script_assign_template.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/matplot.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/findCurvePath.wls",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/gaussdiff/gfilter.m",
+		"/C/Users/Lorenzo/Documents/Polimi/Dispense/Statistica Applicata/Curse of Dimensionality.r",
+		"/C/Users/Lorenzo/Documents/Polimi/Dispense/Ottimizzazione/Domande/.unison.2_Metodo di Newton.pdf.7e02815dd9138fc8345c069a3c856510.unison.tmp",
+		"/C/Users/Lorenzo/Desktop/cite.bib",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/twins/src/test_read_twins.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/src/signatures/extractor/functions/most_distant_subset.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/test_script_import_expertise_fake_signatures.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/src/signatures/extractor/classes/boucleClass.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/src/SB_Raymond/Dockerfile_bayessource",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/src/SB_Raymond/benchmark_triangular_inverse.R",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/src/SB_Raymond/test_boucles.R",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/src/SB_Raymond/Dockerfile",
+		"/C/Users/Lorenzo/Desktop/comments.txt",
+		"/C/Users/Lorenzo/Dropbox/Local/Dev/Python/personal_data_scraper/README.md",
+		"/C/Users/Lorenzo/Dropbox/Local/Dev/Python/personal_data_scraper/docker-compose.yml",
+		"/C/Users/Lorenzo/Downloads/VolaRooms.txt",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/All Autocomplete/All Autocomplete.sublime-settings",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/User/Log Highlight.sublime-settings",
+		"/C/Users/Lorenzo/AppData/Local/Docker/log.txt",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/Log Highlight/Log Highlight.sublime-settings",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/Log Highlight/README.md",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/doc/pre-evaluation_expertise.Rmd",
+		"/C/Users/Lorenzo/AppData/Local/Temp/PDApp.log",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/FuzzyFilePath/FuzzyFilePath.sublime-settings",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/AutoFileName/autofilename.sublime-settings",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/User/FuzzyFilePath.sublime-settings",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/signatures/I-1-sim.png",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/Package Syncing/Package Syncing.sublime-settings",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/User/Package Syncing.sublime-settings",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/FuzzyFilePath/Default (Windows).sublime-keymap",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/User/Snippets/R_markdown.sublime-snippet",
+		"/C/Users/Lorenzo/Downloads/Downloaded/science/R/knitr-spin.R.txt",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/test_script_import_expertise_single_signatures.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/diffeo/Dockerfile-python",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/User/Snippets/R_knitr.sublime-snippet",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/diffeo/docker-compose.yml",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/test_script_export_expertise.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/test_script_import_expertise_simulated_signatures.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/twins/twins-corps/doc_template_specifications.Rmd",
+		"/C/Users/Lorenzo/Dropbox/Local/Dev/R/R_markdown_template.txt",
+		"/C/Users/Lorenzo/Dropbox/Local/Dev/R/knitr_template.txt",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/script_extract_fake_signatures.m",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/diffeo/Dockerfile-ipython",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/User/Snippets/snippet.sublime-snippet",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/User/Snippets/sublimeSnippet.sublime-snippet",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/User/MySnippets.sublime-settings",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/diffeo/Diffeomorphisms.ipynb",
+		"/C/Users/Lorenzo/AppData/Roaming/Sublime Text 3/Packages/My Snippets/MySnippets.sublime-settings",
+		"/C/Users/Lorenzo/Dropbox/Local/Programmi/cmder_mini/config/user-aliases.cmd",
+		"/C/Users/Lorenzo/Dropbox/Local/Programmi/autojump/README.md",
+		"/C/Users/Lorenzo/AppData/Local/clink/autojump.lua",
+		"/C/Users/Lorenzo/Dropbox/Local/Programmi/autojump/bin/j.bat",
+		"/C/Users/Lorenzo/AppData/Roaming/autojump/autojump.txt",
+		"/C/Users/Lorenzo/Dropbox/Local/Programmi/autojump/bin/_j",
+		"/C/Users/Lorenzo/Dropbox/Local/Programmi/autojump/install.py",
+		"/C/Users/Lorenzo/Dropbox/Local/Programmi/cmder_mini/config/settings",
+		"/C/Users/Lorenzo/Dropbox/Local/Programmi/cmder_mini/config/custom_prompt.lua",
+		"/C/Users/Lorenzo/AppData/Local/clink/clink.log",
+		"/C/Users/Lorenzo/AppData/Local/autojump/bin/autojump_data.py",
+		"/C/Users/Lorenzo/AppData/Local/autojump/bin/autojump.bat",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/docker-compose.yml",
+		"/C/Users/Lorenzo/Dropbox/Work/UNIL/expertise-banca/src/Dockerfile-ipython"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 203.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 44.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 265.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.hex_viewer_inspector":
+	{
+		"height": 130.0
+	},
+	"output.latextools":
+	{
+		"height": 203.0
+	},
+	"output.loghighlight":
+	{
+		"height": 130.0
+	},
+	"output.markdown":
+	{
+		"height": 130.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/R-Box/support/R Markdown.sublime-build",
+	"project": "blog-hugo.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"testresadc",
+				"expertise-banca\\src\\test_read_curves.R"
+			],
+			[
+				"datade",
+				"expertise-banca\\doc\\data_description.Rmd"
+			],
+			[
+				"import",
+				"expertise-banca\\src\\script_import_expertise_splines.m"
+			],
+			[
+				"data",
+				"expertise-banca\\doc\\data_description.Rmd"
+			],
+			[
+				"compute",
+				"expertise-banca\\src\\computeSmoothCurvature.m"
+			],
+			[
+				"compsmo",
+				"expertise-banca\\src\\computeSmoothCurvature.m"
+			],
+			[
+				"findcur",
+				"expertise-banca\\src\\findCurvePathMathematica.m"
+			],
+			[
+				"findcurve",
+				"expertise-banca\\src\\findCurvePath.m"
+			],
+			[
+				"extractpeak",
+				"expertise-banca\\src\\extractPeakDelayDatasetFromSignatureImage.m"
+			],
+			[
+				"computes",
+				"expertise-banca\\src\\computeSmoothCurvature.m"
+			],
+			[
+				"filespl",
+				"expertise-banca\\src\\filesplit.m"
+			],
+			[
+				"cont",
+				"expertise-banca\\src\\Contents.m"
+			],
+			[
+				"peak",
+				"expertise-banca\\doc\\peak_delay_model.Rmd"
+			],
+			[
+				"scriptimport",
+				"expertise-banca\\src\\script_import_expertise_single_signatures.m"
+			],
+			[
+				"computesmoo",
+				"expertise-banca\\src\\computeSmoothCurvature.m"
+			],
+			[
+				"testrmd",
+				"expertise-banca\\doc\\test.Rmd"
+			],
+			[
+				"codeso",
+				"expertise-banca\\doc\\code_sources.bib"
+			],
+			[
+				"scriptregister",
+				"expertise-banca\\src\\script_register_curves.m"
+			],
+			[
+				"matpl",
+				"expertise-banca\\src\\matplot.m"
+			],
+			[
+				"showisgn",
+				"signatures\\extractor\\functions\\showSignatures.m"
+			],
+			[
+				"expoert",
+				"expertise-banca\\src\\test_script_export_expertise.m"
+			],
+			[
+				"dockercom",
+				"expertise-banca\\diffeo\\docker-compose.yml"
+			],
+			[
+				"dock",
+				"expertise-banca\\diffeo\\Dockerfile-ipython"
+			],
+			[
+				"cmpose",
+				"expertise-banca\\diffeo\\docker-compose.yml"
+			],
+			[
+				"docer",
+				"expertise-banca\\diffeo\\Dockerfile-ipython"
+			],
+			[
+				"doc",
+				"expertise-banca\\diffeo\\docker-compose.yml"
+			],
+			[
+				"docker-c",
+				"expertise-banca\\src\\docker-compose.yml"
+			],
+			[
+				"docker",
+				"expertise-banca\\src\\Dockerfile-ipython"
+			],
+			[
+				"scrextra",
+				"expertise-banca\\src\\script_extract_fake_signatures.m"
+			],
+			[
+				"addto",
+				"signatures\\extractor\\addToolboxPaths.m"
+			],
+			[
+				"compose",
+				"expertise-banca\\src\\docker-compose.yml"
+			],
+			[
+				"build",
+				"expertise-banca\\src\\build_Docker.bat"
+			],
+			[
+				"run_",
+				"expertise-banca\\src\\run_Docker.bat"
+			],
+			[
+				"diffeo",
+				"expertise-banca\\src\\diffeo.py"
+			],
+			[
+				"buil",
+				"expertise-banca\\src\\build_Docker.bat"
+			],
+			[
+				"run",
+				"expertise-banca\\src\\run_Docker.bat"
+			],
+			[
+				"merge",
+				"signatures\\extractor\\script_merge_matched_signatures.m"
+			],
+			[
+				"isolate",
+				"signatures\\extractor\\functions\\isolateSignaturesFromPage.m"
+			],
+			[
+				"script",
+				"expertise-banca\\src\\script_extract_fake_signatures.m"
+			],
+			[
+				"setkepyauto",
+				"extractor\\classes\\@signatureImage\\setKeypointsFromTemplateAuto.m"
+			],
+			[
+				"twins",
+				"extractor\\test_read_twins.m"
+			],
+			[
+				"signabouc",
+				"analysis\\plot_signatures_boucles_test_rebuild.R"
+			],
+			[
+				"psigbou",
+				"analysis\\plot_signatures_boucles_test.R"
+			],
+			[
+				"export_",
+				"analysis\\export_boucles.R"
+			],
+			[
+				"makesign",
+				"analysis\\make_signatures_boucles.R"
+			],
+			[
+				"pskey",
+				"analysis\\plot_signatures_keypoints.R"
+			],
+			[
+				"makeb",
+				"analysis\\make_signatures_boucles.R"
+			],
+			[
+				"makebou",
+				"analysis\\make_signatures_boucles.R"
+			],
+			[
+				"makebo",
+				"analysis\\make_signatures_boucles.R"
+			],
+			[
+				"export",
+				"analysis\\export_boucles.R"
+			],
+			[
+				"boucles",
+				"analysis\\make_signatures_boucles.R"
+			],
+			[
+				"bernou",
+				"analysis\\LR\\bernoulli_missing_LR.R"
+			],
+			[
+				"plotsi",
+				"analysis\\plot_signatures.R"
+			],
+			[
+				"gui",
+				"extractor\\functions\\extractSkeleton_GUI.m"
+			],
+			[
+				"scriptedi",
+				"extractor\\script_edit_signatures.m"
+			],
+			[
+				"make",
+				"analysis\\make_datasets.R"
+			],
+			[
+				"stat_sign",
+				"extractor\\stat_signatures.m"
+			],
+			[
+				"statsigna",
+				"extractor\\stat_signatures.m"
+			],
+			[
+				"signatureimage",
+				"extractor\\classes\\@signatureImage\\signatureImage.m"
+			],
+			[
+				"makeda",
+				"analysis\\make_datasets.R"
+			],
+			[
+				"plotsignaturesdis",
+				"analysis\\plot_signatures_distances.R"
+			],
+			[
+				"script_",
+				"extractor\\script_merge_matched_signatures.m"
+			],
+			[
+				"extracgui",
+				"extractor\\functions\\extractSkeleton_GUI.m"
+			],
+			[
+				"edit",
+				"extractor\\edit_signatures.m"
+			],
+			[
+				"extractske",
+				"extractor\\functions\\extractSkeleton_GUI.m"
+			],
+			[
+				"bouclecl",
+				"extractor\\classes\\boucleClass.m"
+			],
+			[
+				"editsig",
+				"extractor\\edit_signatures.m"
+			],
+			[
+				"selectbo",
+				"extractor\\select_boucles.m"
+			],
+			[
+				"selectkey",
+				"extractor\\select_keypoints.m"
+			],
+			[
+				"clean",
+				"extractor\\clean_signatures_LG.m"
+			],
+			[
+				"",
+				"analysis\\signature_size_comparative.R"
+			],
+			[
+				"plot",
+				"analysis\\plot_signatures.R"
+			],
+			[
+				"plugin",
+				"analysis\\LR\\functions_LR_mvnorm_plugin.R"
+			],
+			[
+				"compara",
+				"analysis\\signature_size_comparative.R"
+			],
+			[
+				"psig",
+				"analysis\\plot_signatures_angles.R"
+			],
+			[
+				"keypoin",
+				"analysis\\plot_signatures_keypoints.R"
+			],
+			[
+				"psgene",
+				"analysis\\plot_signatures_generic.R"
+			],
+			[
+				"jags",
+				"analysis\\LR\\RLR\\R\\classification_LR_mvnorm_JAGS.R"
+			],
+			[
+				"class",
+				"analysis\\LR\\RLR\\R\\classification_LR_mvnorm_MC.R"
+			],
+			[
+				"functionslrmv",
+				"analysis\\LR\\functions_LR_mvnorm_plugin.R"
+			],
+			[
+				"desc",
+				"analysis\\LR\\RLR\\DESCRIPTION"
+			],
+			[
+				"name",
+				"analysis\\LR\\RLR\\NAMESPACE"
+			],
+			[
+				"functi",
+				"analysis\\functions.R"
+			],
+			[
+				"compuelrp",
+				"analysis\\LR\\compute_LR_mvnorm_plugin.R"
+			],
+			[
+				"function",
+				"analysis\\LR\\function_LR_sensitivity_comparison_LA.R"
+			],
+			[
+				"plot_t",
+				"analysis\\plot_themes.R"
+			],
+			[
+				"computem",
+				"analysis\\LR\\compute_LR_mvnorm_plugin.R"
+			],
+			[
+				"gauss",
+				"analysis\\LR\\gauss_mix.txt"
+			],
+			[
+				"fully",
+				"analysis\\LR\\gauss_mix_fully_bayesian.txt"
+			],
+			[
+				"gaussmixfu",
+				"analysis\\LR\\gauss_mix_fully_bayesian.txt"
+			],
+			[
+				"lucyait",
+				"analysis\\lucy_aitken_test_matrices.R"
+			],
+			[
+				"testcode",
+				"analysis\\lucy_aitken_test_code.R"
+			],
+			[
+				"lucy",
+				"analysis\\lucy_aitken_test_code.R"
+			],
+			[
+				".txt",
+				"analysis\\LR\\gauss_mix_fully_bayesian.txt"
+			],
+			[
+				"sigcompa",
+				"analysis\\signature_size_comparative.R"
+			],
+			[
+				"ssize",
+				"analysis\\signature_size_LR.R"
+			],
+			[
+				"computelr",
+				"analysis\\LR\\compute_LR_mvnorm_plugin.R"
+			],
+			[
+				"gaus",
+				"analysis\\LR\\gauss_mix_fully_bayesian.txt"
+			],
+			[
+				"gau",
+				"analysis\\LR\\gauss_mix.txt"
+			],
+			[
+				"gaussmi",
+				"analysis\\LR\\gauss_mix_fully_bayesian.txt"
+			],
+			[
+				"showmu",
+				"extractor\\functions\\showMultipleImages.m"
+			],
+			[
+				"get_angle",
+				"extractor\\functions\\get_angle.m"
+			],
+			[
+				"angle",
+				"extractor\\classes\\@signatureImage\\anglesSetAsTemplate.m"
+			],
+			[
+				"addang",
+				"extractor\\classes\\@signatureKeypoints\\addAngle.m"
+			],
+			[
+				"chb",
+				"extractor\\functions\\fcn_ChooseBestKeypoints.m"
+			],
+			[
+				"getpla",
+				"extractor\\classes\\@signatureImage\\anglesSetAsTemplate.m"
+			],
+			[
+				"angleclas",
+				"extractor\\classes\\angleClass.m"
+			],
+			[
+				"addangle",
+				"extractor\\classes\\@signatureKeypoints\\addAngle.m"
+			],
+			[
+				"anglesset",
+				"extractor\\classes\\@signatureImage\\anglesSetAsTemplate.m"
+			],
+			[
+				"extractpo",
+				"extractor\\functions\\extractPointSurroundings.m"
+			],
+			[
+				"extractpointsurroundings",
+				"extractor\\functions\\extractPointSurroundings.m"
+			],
+			[
+				"getands",
+				"extractor\\classes\\@signatureImage\\getAndShowClosestKeypoint.m"
+			],
+			[
+				"keyopintsadd",
+				"extractor\\classes\\@signatureImage\\keypointsAdd.m"
+			],
+			[
+				"extractbo",
+				"extractor\\functions\\extractBoucleInteractive.m"
+			],
+			[
+				"boucle",
+				"extractor\\classes\\boucleClass.m"
+			],
+			[
+				"sigkeypoints",
+				"extractor\\classes\\@signatureKeypoints\\signatureKeypoints.m"
+			],
+			[
+				"signaimag",
+				"extractor\\classes\\@signatureImage\\signatureImage.m"
+			],
+			[
+				"scm",
+				"analysis\\signatures_computed_measures.R"
+			],
+			[
+				"pscmp",
+				"analysis\\plot_signatures_computed_measures.R"
+			],
+			[
+				"bwd",
+				"analysis\\build_wide_dataset.R"
+			],
+			[
+				"wdfs",
+				"analysis\\wide_dataset_feature_selection.R"
+			],
+			[
+				"testpca",
+				"nnet\\test_pca_images.m"
+			],
+			[
+				"testber",
+				"analysis\\LR\\test_Bernoulli_LR_RCpp.R"
+			],
+			[
+				"statdi",
+				"analysis\\LR\\compute_LR_statistical_distributions.h"
+			],
+			[
+				"stati",
+				"analysis\\LR\\compute_LR_statistical_distributions.cpp"
+			],
+			[
+				"distribu",
+				"analysis\\LR\\compute_LR_statistical_distributions.cpp"
+			],
+			[
+				"bern",
+				"analysis\\LR\\bernoulli_missing_LR.R"
+			],
+			[
+				".cpp",
+				"analysis\\LR\\compute_LR_Rcpp.cpp"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 625.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"sb_r",
+				"C:\\Users\\Lorenzo\\Dropbox\\Work\\UNIL\\src\\SB_Raymond\\SB_Raymond.sublime-project"
+			],
+			[
+				"",
+				"C:\\Users\\Lorenzo\\Dropbox\\Work\\UNIL\\src\\signatures\\signatures_code.sublime-project"
+			],
+			[
+				"pip",
+				"C:\\Users\\Lorenzo\\Dropbox\\Local\\Dev\\Python\\pipl\\pipl.sublime-project"
+			]
+		],
+		"width": 475.0
+	},
+	"select_symbol":
+	{
+		"height": 114.0,
+		"last_filter": "extractcurv",
+		"selected_items":
+		[
+			[
+				"extractcurv",
+				"extractCurveDataset"
+			],
+			[
+				"exportdata",
+				"exportDataToStruct"
+			],
+			[
+				"",
+				"fcn.lr.scatterplot"
+			],
+			[
+				"comlrcvse",
+				"fcn.compute.LR.cv.sensitivity"
+			],
+			[
+				"fcn.comp",
+				"fcn.compute.LR.cv.sensitivity"
+			]
+		],
+		"width": 422.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 335.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}
