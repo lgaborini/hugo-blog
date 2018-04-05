@@ -90,8 +90,14 @@ identifier = "about"
 url = "/about/"
 
 [[menu.main]]
-name = "Github"
+name = "Home"
 weight = -10
+identifier = "main"
+url = "/"
+
+[[menu.main]]
+name = "Github"
+weight = 0
 identifier = "repository"
 url = "https://github.com/lgaborini"
 
