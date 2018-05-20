@@ -1,0 +1,195 @@
+---
+title: "Viewing scraped HTML sessions from rvest and friends"
+draft: true
+categories: ["coding"]
+tags: ["R", "rvest"]
+date: "2018-01-17"
+editor_options: 
+  chunk_output_type: console
+---
+
+
+Hadley Wickham's excellent `rvest` R package is an extremely easy way to scrape any HTML page.    
+It also provides limited utilities to do the scraping interactively: 
+
+- `html_session`, which actually starts a browsing session in R interpreter,
+- `back`, `follow_link`, `jump_to` implement page navigation using history or link selectors (CSS/XPath)
+- `html_nodes` accept `session` objects and return HTML nodes in `rvest`-friendly format
+
+However, there is no easy way to see the code which is actually parsed.  
+Since `rvest` uses `httr` to make HTML requests, returned code can be very different from what is seen on a browser.
+
+Similar issues exist even if you use other R packages such as `httr` (which, basically, deals only with the HTTP requests), `curl` or `RCurl` (same, but the hard way!).
+
+In this post, we provide some quick functions to access the HTML code and view it in a browser. We will also learn how to exploit the S3 object system in R to help us!
+
+### Using `rvest`
+
+Suppose that we have just scraped a page:
+```{r}
+library(xml2)
+library(rvest)
+
+url <- 'https://nghttp2.org/httpbin/'
+s <- rvest::html_session(url)
+class(s)
+```
+
+`s` holds the scraped page (it is a ` `r class(s)` `-object), we can access the page contents using `xml2::read_html()`:
+
+```{r}
+s_tree <- xml2::read_html(s)
+class(s_tree)
+s_tree
+```
+
+We can see that `s_tree` has class `xml2::xml_document`, but the code is still hidden. The function `as.character` helps:
+
+```{r}
+as.character(s_tree)
+```
+
+Here it is!
+Now we want to view it on a browser. 
+
+R `base` package contains the function `browseURL()`, which however opens the browser to an URL or a file. So we have to store it on disk. 
+
+Let's create a function which does all of this: getting a `session` object, extracting the HTML code, casting to character, writing it to disk and taking care of cleaning the output.
+
+```{r, eval=FALSE}
+view_rvest <- function(s) {
+
+   # Cast the session to character
+   stopifnot(class(s) == 'session')
+   s_tree <- xml2::read_html(s)
+   s_code <- as.character(s_tree)
+   
+   # Make a temporary file, fill it with text
+   temp_file <- tempfile(fileext = '.html')
+
+   f <- file(temp_file, open = 'w')
+   write(s_code, f)
+   close(f)
+   
+   browseURL(temp_file)
+
+   # Wait a while, then delete it
+   Sys.sleep(3)
+   unlink(temp_file)
+}
+
+view_rvest(s)
+```
+
+And voilà!
+
+
+### Using `httr`
+
+Suppose, now, that we want to do the same with an `httr` request.   
+E.g., the code from the previous page can be retrieved by:
+
+```{r}
+req <- httr::GET(url)
+httr::content(req, as = 'text')
+```
+
+where `req` is a ` `r class(req)` `-object.
+
+The resulting do-it-all function would be:
+
+```{r, eval = FALSE}
+view_httr <- function(req) {
+
+   # Cast the session to character
+   stopifnot(class(req) == 'response')
+   s_code <- httr::content(req, as = 'text')
+   
+   # Make a temporary file, fill it with text
+   temp_file <- tempfile(fileext = '.html')
+
+   f <- file(temp_file, open = 'w')
+   write(s_code, f)
+   close(f)
+   
+   browseURL(temp_file)
+
+   # Wait a while, then delete it
+   Sys.sleep(3)
+   unlink(temp_file)
+}
+
+view_httr(req)
+```
+
+And voilà! (2)
+
+### Generalizing with S3 objects
+
+So far, we wrote two functions:
+
+- `view_rvest`, operating on `text` objects
+- `view_httr`, operating on `request` objects
+
+We would like to have a single function which elegantly deals with both cases, and allows for easy extensions.  
+
+Either we write a wrapper, and distinguish between the two with an `if`, or we use the [S3 object](https://adv-r.hadley.nz/s3.html) system in R.
+
+It is actually very simple and hackish, but it works well!
+
+In short, we write a **generic** method, which then calls (**dispatches**) the appropriate method for the object type.   
+The generic method will be seen by the user, the following methods will be, in general, hidden.
+
+```{r}
+view_html <- function(x) {
+   UseMethod('view_html', x)
+}
+```
+
+What it does when called, is to grab the class of `x`, and call the method named as `view_html.class` (where, of course, class is `class(x)`).   
+So, we just need to rename:
+
+- `view_httr` to `view_html.response` (as `x` is a `response`, from `httr`) 
+- `view_rvest` to `view_html.session` (as `x` is a `session`, from `rvest`)
+
+To be more compact, we can also introduce the `view_html.character` method which writes character vectors to disk and opens a browser.
+
+Finally, here are the resulting methods:
+
+```{r, eval = FALSE}
+view_html <- function(x) {
+   UseMethod('view_html', x)
+}
+view_html.session <- function(s) {
+   s_tree <- xml2::read_html(s)
+   s_code <- as.character(s_tree)
+   
+   view_html(s_code)
+}
+view_html.response <- function(resp) {
+   s_code <- httr::content(resp, as = 'text')
+   
+   view_html(s_code)
+}
+
+view_html.character <- function(text) {
+   temp_file <- tempfile(fileext = '.html')
+   
+   print(paste('Created:', temp_file))
+   
+   f <- file(temp_file, open = 'w')
+   write(text, f)
+   close(f)
+   
+   browseURL(temp_file)
+   Sys.sleep(3)
+   unlink(temp_file)
+}
+
+# The calls (hidden from the user!):
+view_html(s)
+view_html(req)
+view_html('test')
+```
+
+Thank you for reading!

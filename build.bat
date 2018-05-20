@@ -1,0 +1,1 @@
+R -e "blogdown::build_site(local = FALSE, method = 'html', run_hugo = TRUE)"
