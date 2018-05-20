@@ -1,8 +1,8 @@
 ---
 title: "Viewing scraped HTML sessions from rvest and friends"
-draft: true
+draft: false
 categories: ["coding"]
-tags: ["R", "rvest"]
+tags: ["R", "rvest", "httr", "S3"]
 date: "2018-01-17"
 editor_options: 
   chunk_output_type: console
@@ -156,7 +156,7 @@ To be more compact, we can also introduce the `view_html.character` method which
 
 Finally, here are the resulting methods:
 
-```{r, eval = FALSE}
+<!-- ```{r, eval = FALSE}
 view_html <- function(x) {
    UseMethod('view_html', x)
 }
@@ -184,9 +184,13 @@ view_html.character <- function(text) {
    browseURL(temp_file)
    Sys.sleep(3)
    unlink(temp_file)
-}
+}``` -->
 
-# The calls (hidden from the user!):
+`r blogdown::shortcode('gist', 'e3f91067a7d6e70d238af5da9c03b892')`
+
+The "smart" calls:
+
+```{r, eval=FALSE}
 view_html(s)
 view_html(req)
 view_html('test')

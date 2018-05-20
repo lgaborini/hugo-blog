@@ -1,8 +1,8 @@
 ---
 title: "Viewing scraped HTML sessions from rvest and friends"
-draft: true
+draft: false
 categories: ["coding"]
-tags: ["R", "rvest"]
+tags: ["R", "rvest", "httr", "S3"]
 date: "2018-01-17"
 editor_options: 
   chunk_output_type: console
@@ -125,37 +125,38 @@ So, we just need to rename:</p>
 </ul>
 <p>To be more compact, we can also introduce the <code>view_html.character</code> method which writes character vectors to disk and opens a browser.</p>
 <p>Finally, here are the resulting methods:</p>
-<pre class="r"><code>view_html &lt;- function(x) {
-   UseMethod(&#39;view_html&#39;, x)
+<!-- ```{r, eval = FALSE}
+view_html <- function(x) {
+   UseMethod('view_html', x)
 }
-view_html.session &lt;- function(s) {
-   s_tree &lt;- xml2::read_html(s)
-   s_code &lt;- as.character(s_tree)
+view_html.session <- function(s) {
+   s_tree <- xml2::read_html(s)
+   s_code <- as.character(s_tree)
    
    view_html(s_code)
 }
-view_html.response &lt;- function(resp) {
-   s_code &lt;- httr::content(resp, as = &#39;text&#39;)
+view_html.response <- function(resp) {
+   s_code <- httr::content(resp, as = 'text')
    
    view_html(s_code)
 }
 
-view_html.character &lt;- function(text) {
-   temp_file &lt;- tempfile(fileext = &#39;.html&#39;)
+view_html.character <- function(text) {
+   temp_file <- tempfile(fileext = '.html')
    
-   print(paste(&#39;Created:&#39;, temp_file))
+   print(paste('Created:', temp_file))
    
-   f &lt;- file(temp_file, open = &#39;w&#39;)
+   f <- file(temp_file, open = 'w')
    write(text, f)
    close(f)
    
    browseURL(temp_file)
    Sys.sleep(3)
    unlink(temp_file)
-}
-
-# The calls (hidden from the user!):
-view_html(s)
+}``` -->
+{{% gist "e3f91067a7d6e70d238af5da9c03b892" %}}
+<p>The “smart” calls:</p>
+<pre class="r"><code>view_html(s)
 view_html(req)
 view_html(&#39;test&#39;)</code></pre>
 <p>Thank you for reading!</p>

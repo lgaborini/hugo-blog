@@ -6,7 +6,7 @@ categories: ["coding"]
 tags: ["Docker", "snippets"]
 ---
 
-## Ever needed a way to run a single-core benchmark on a machine?
+### Ever needed a way to run a single-core benchmark on a machine?
 
 From [this blog post](http://tuxshell.blogspot.ch/2009/08/bc-as-cpu-benchmark.html), the Linux calculator `bc` can be used as a benchmark tool with almost no requirements. We only need a Linux shell capable of running the command `time`, and of course `bc`.   
 
@@ -20,7 +20,7 @@ Here's the output of my machine under WSL:
     bc -l  20.83s user 0.00s system 99% cpu 20.950 total
     
 
-## Docker image
+#### Docker image
 
 The simplest benchmark can be associated to the [simplest Docker machine](https://hub.docker.com/r/lgaborini/benchmarkbash/).  
 The image is only 5 MB in size!   
@@ -47,7 +47,7 @@ where `benchmark_bc.sh` is a wrapper for the benchmark command ([source](https:/
 
 Sadly the wrapper is necessary to correctly pass `time` to the shell.
 
-### Usage
+##### Usage
 
 Usage is absolutely trivial:
 
