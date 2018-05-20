@@ -24,8 +24,8 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 defaultContentLanguage = "en"
 
 [params.info]
-description = "A website built through Hugo and blogdown."
-title404 = "Nothing's here!"
+description = "A blog about data."
+title404 = "Sorry, no data on this page!"
 
 [params.assets]
 favicon = "favicon.ico"
@@ -96,7 +96,7 @@ identifier = "main"
 url = "/"
 
 [[menu.main]]
-name = "Github"
+name = "My GitHub"
 weight = 0
 identifier = "repository"
 url = "https://github.com/lgaborini"
