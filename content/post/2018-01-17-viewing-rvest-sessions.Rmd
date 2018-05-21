@@ -8,8 +8,12 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
 
-Hadley Wickham's excellent `rvest` R package is an extremely easy way to scrape any HTML page.    
+
+Hadley Wickham's excellent {{<cran rvest>}} R package is an extremely easy way to scrape any HTML page.    
 It also provides limited utilities to do the scraping interactively: 
 
 - `html_session`, which actually starts a browsing session in R interpreter,
@@ -17,9 +21,9 @@ It also provides limited utilities to do the scraping interactively:
 - `html_nodes` accept `session` objects and return HTML nodes in `rvest`-friendly format
 
 However, there is no easy way to see the code which is actually parsed.  
-Since `rvest` uses `httr` to make HTML requests, returned code can be very different from what is seen on a browser.
+Since {{<cran rvest>}} uses {{<cran httr>}} to make HTML requests, returned code can be very different from what is seen on a browser.
 
-Similar issues exist even if you use other R packages such as `httr` (which, basically, deals only with the HTTP requests), `curl` or `RCurl` (same, but the hard way!).
+Similar issues exist even if you use other R packages such as {{<cran httr>}} (which, basically, deals only with the HTTP requests), {{<cran curl>}} or {{<cran RCurl>}} (same, but the hard way!).
 
 In this post, we provide some quick functions to access the HTML code and view it in a browser. We will also learn how to exploit the S3 object system in R to help us!
 
@@ -186,7 +190,7 @@ view_html.character <- function(text) {
    unlink(temp_file)
 }``` -->
 
-`r blogdown::shortcode('gist', 'e3f91067a7d6e70d238af5da9c03b892')`
+{{<gist e3f91067a7d6e70d238af5da9c03b892>}}
 
 The "smart" calls:
 
