@@ -1,5 +1,6 @@
 baseurl = "/"
 title = "Adventures in data"
+disqusShortname = "https-adventuresindata-netlify-com"
 
 # for smart copyright line, leave this blank and check [params.copyright]
 copyright = ""
@@ -24,7 +25,6 @@ defaultContentLanguage = "en"
 
 [params.comments]
 enable = true
-disqusShortname = "https-adventuresindata-netlify-com"
 
 [params.info]
 description = "A blog about data."

@@ -4,7 +4,6 @@ draft: true
 categories: ["blog"]
 date: "2018-05-21"
 tags: ["blog"]
-comments: true
 ---
 
 Lately, I have been testing [Hugo](https://gohugo.io/) as a blogging platform.
