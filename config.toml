@@ -4,7 +4,6 @@ title = "Adventures in data"
 # for smart copyright line, leave this blank and check [params.copyright]
 copyright = ""
 theme = "minimo"
-disqusShortname = "https-adventuresindata-netlify-com"
 googleAnalytics = ""
 
 Paginate = 20
@@ -22,6 +21,10 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 # Missing translations will default to this content language
 defaultContentLanguage = "en"
+
+[params.comments]
+enable = true
+disqusShortname = "https-adventuresindata-netlify-com"
 
 [params.info]
 description = "A blog about data."
