@@ -37,7 +37,7 @@ Here is the same script written under the two formats:
 
 #### Base: R Markdown with R chunks (`.Rmd`)
 
-~~~markdown
+~~~md
 ---
 title: "Sample"
 author: "Lorenzo G"
