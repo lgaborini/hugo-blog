@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://adventuresindata.netlify.com/"
 title = "Adventures in data"
 disqusShortname = "https-adventuresindata-netlify-com"
 accentColor = "#2497E3"
