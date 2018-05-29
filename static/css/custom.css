@@ -1,3 +1,11 @@
 code,kbd,samp,var {
     font-size: .8em
 }
+
+/* Standalone <pre> chunks */
+pre {
+	/* Monokai background */
+	background-color: #23241f;
+	color: #f8f8f2;
+	padding: 0.5em;
+}

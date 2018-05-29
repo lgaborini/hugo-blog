@@ -1,0 +1,15 @@
+<link rel='icon' href='{{ ( or .Site.Params.assets.favicon "favicon.ico" ) | relURL }}'>
+<link rel='stylesheet' href='{{ print "/assets/css/" .Site.Data.assets.main.css | relURL  }}'>
+
+{{- range .Site.Params.assets.customCSS -}}
+  <link rel='stylesheet' href='{{ . | relURL }}'>
+{{- end -}}
+
+{{/* Inject hightlight.js */}}
+<link rel="stylesheet" href="{{"/css/highlightjs/monokai-sublime.css" | absURL}}" rel="stylesheet" id="theme-stylesheet">
+<script src="{{ "/js/highlightjs/highlight.pack.js" | absURL }}"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+{{- partial "head/css" . -}}
+
+{{- partial "head/analytics" . -}}
