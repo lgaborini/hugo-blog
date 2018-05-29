@@ -13,13 +13,15 @@ From [this blog post](http://tuxshell.blogspot.ch/2009/08/bc-as-cpu-benchmark.ht
 
 E.g. we can measure the time needed to compute \\(\pi\\) to 5000 digits:
 
-    $ time echo "scale=5000; a(1)*4" | bc -l
-    
+~~~text
+time echo "scale=5000; a(1)*4" | bc -l
+~~~
 
 Here's the output of my machine under WSL:
-
-    bc -l  20.83s user 0.00s system 99% cpu 20.950 total
     
+~~~text
+bc -l  20.83s user 0.00s system 99% cpu 20.950 total
+~~~     
 
 #### Docker image
 
@@ -54,14 +56,16 @@ Sadly the wrapper is necessary to correctly pass `time` to the shell.
 
 Usage is absolutely trivial:
 
-```bash
+```text
 docker run -it lgaborini/benchmarkbash
 ```
 Notice that `alpine` uses `sh`, which outputs the time in a slightly different format:
 
-    real    0m 26.09s
-    user    0m 26.06s
-    sys     0m 0.00s
+```text
+real    0m 26.09s
+user    0m 26.06s
+sys     0m 0.00s
+```
 
 ### Links
 
