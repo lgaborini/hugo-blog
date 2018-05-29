@@ -20,7 +20,7 @@ pygmentsStyle = 'monokai'
 
 enableEmoji = false
 
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", "^__$"]
 
 # Missing translations will default to this content language
 defaultContentLanguage = "en"

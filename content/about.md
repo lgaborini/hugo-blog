@@ -8,6 +8,7 @@ This blog contains a sorted collection of thoughts, analyses, code snippets and 
 
 #### How it's made
 
-The blog mainly runs in [Hugo](https://gohugo.io/), with theme [Minimo](https://minimo.netlify.com/). Currently hosted on [Netlify](https://www.netlify.com).
+The blog mainly runs in [Hugo](https://gohugo.io/), with theme [Minimo](https://minimo.netlify.com/), slightly modified with [highlight.js](https://highlightjs.org/).
+Currently hosted on [Netlify](https://www.netlify.com).
 
 Actually, it is built using {{<cran blogdown>}} package, which takes care of compiling Rmarkdown `.Rmd` to markdown files.
