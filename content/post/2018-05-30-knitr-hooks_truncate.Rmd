@@ -1,0 +1,151 @@
+---
+title: "Controlling long outputs with knitr hooks"
+draft: false
+categories: ["blog"]
+tags: ["R", "blogdown", "knitr", "hooks", "snippets"]
+date: "2018-05-30"
+---
+
+
+```{r setup, include=FALSE}
+library(magrittr)
+knitr::opts_chunk$set(collapse = TRUE)
+
+# source('set_hooks.R', local = FALSE)
+```
+
+## Introduction
+
+This blog is written in a combination of Markdown and R Markdown (using the R package `r blogdown::shortcode('cran','blogdown')`).
+
+As such, some R Markdown posts contain code chunks who generate very lengthy and verbose output.   
+An example is this one, which generates a sequence of strings separated by newlines:
+```{r long-lines}
+n <- 10
+m <- 10
+matrix(rnorm(m*n), m, n)
+```
+
+and this one, which generates a single long string:
+```{r long-string}
+long_string <- paste(rep(letters, 30), collapse = '')
+long_string
+```
+
+## Enter: knitr hooks
+
+As detailed by the [knitr documentation](https://yihui.name/knitr/hooks/), `knitr` provides a set of functions to transparently modify a chunk, without changing the inner contents, but specifying chunk options. Such functions are called **hooks**.
+
+Knitr hooks can be of two types: chunk hooks, output hooks and option hooks.   
+To our purpose, we are interested in **output hooks**.   
+
+These are functions which, in general, take two parameters: the chunk output, and the chunk options (e.g. `fig.width`).
+
+From the [documentation](https://yihui.name/knitr/hooks/#output-hooks), an output hook can deal with 8 different types of outputs:
+
+- *source*: the source code
+- *output*: ordinary R output (i.e., what would have been printed in an R terminal) except warnings, messages and errors
+- *warning*: warnings from warning()
+- *message*: messages from message()
+- *error*: errors from stop() (applies to errors in both code chunks and inline R code)
+- *plot*: graphics output
+- *inline*: output of inline R code
+- *chunk*: all the output of a chunk (i.e., those produced by the previous hooks)
+- *document*: the output of the whole document (is base::identity by default)
+
+Again, we are interested in output hooks for the output, as we want to preserve source code, errors, warnings and messages.
+
+### Line truncation
+
+This is directly taken from knitr examples: [`052-suppress-output.Rmd`](https://github.com/yihui/knitr-examples/blob/master/052-suppress-output.Rmd)
+
+First, e.g. in the setup chunk, we retrieve the default output hook:
+```{r}
+# the default output hook
+hook_output_default <- knitr::knit_hooks$get('output')
+```
+
+We define a function which truncates the output up to `n` lines. `x` is the chunk output, as a character vector. If `n` is missing, the output passes through, unaffected.
+
+```{r}
+truncate_to_lines <- function(x, n) {
+   if (!is.null(n)) {
+      x = unlist(stringr::str_split(x, '\n'))
+      if (length(x) > n) {
+         # truncate the output
+         x = c(head(x, n), '...\n')
+      }
+      x = paste(x, collapse = '\n') # paste first n lines together
+   }
+   x
+}
+```
+
+Finally, we can overwrite the default knitr hook, and truncate if option `max.lines` is specified:
+```{r}
+knitr::knit_hooks$set(output = function(x, options) {
+   max.lines <- options$max.lines
+   x <- truncate_to_lines(x, max.lines)
+
+   hook_output_default(x, options)
+})
+```
+
+Let's see the first chunk, now truncated to 3 lines. We set `max.lines=3` in the chunk options:
+
+~~~~md
+`​​``{​r, max.lines = 3}
+n <- 10
+m <- 10
+matrix(rnorm(m*n), m, n)
+`​``
+~~~~
+
+and here is the output:
+
+```{r long-lines, max.lines = 3}
+```
+
+
+### Character truncation
+
+This time we need to define a function which truncates up to a specified amount of characters, if `n_chars` is specified:
+```{r}
+truncate_to_chars <- function(x, n_chars) {
+   if (!is.null(n_chars)) {
+      if (min(nchar(x), n_chars) < nchar(x)) {
+         x <- substr(x, 1, min(nchar(x), n_chars))
+         x <- paste(x, ' ...\n')
+      }
+   }
+   x
+}
+```
+
+Then, we can add the truncation function to the output hook:
+```{r}
+knitr::knit_hooks$set(output = function(x, options) {
+    max.lines <- options$max.lines
+    x <- truncate_to_lines(x, max.lines)
+
+    # Here is our new code
+    max.chars <- options$max.chars
+    x <- truncate_to_chars(x, max.chars)
+
+    hook_output_default(x, options)
+})
+```
+
+And here is the second chunk, truncated to 20 chars (setting `max.chars = 20` in the chunk options):
+```{r long-string, max.chars = 20}
+```
+Notice that the code is not part of the character count (it is an output hook on the *output*!), but the prompt and the whitespaces are (up to `"..."`).
+
+----
+
+And, of course, both truncations can be combined.   
+E.g., let's see the first chunk to 3 lines and 160 characters:
+```{r long-lines, max.lines=3, max.chars=160}
+```
+
+Thanks for reading!
