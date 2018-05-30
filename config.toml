@@ -25,6 +25,9 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", "^__$"]
 # Missing translations will default to this content language
 defaultContentLanguage = "en"
 
+[params.highlightjs]
+enable = true
+
 [params.comments]
 enable = true
 

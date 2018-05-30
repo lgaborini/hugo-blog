@@ -6,9 +6,11 @@
 {{- end -}}
 
 {{/* Inject hightlight.js */}}
-<link rel="stylesheet" href="{{"/css/highlightjs/monokai-sublime.css" | absURL}}" rel="stylesheet" id="theme-stylesheet">
-<script src="{{ "/js/highlightjs/highlight.pack.js" | absURL }}"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+{{ if eq .Site.Params.highlightjs.enable true }}
+	<link rel="stylesheet" href="{{"/css/highlightjs/monokai-sublime.css" | absURL}}" rel="stylesheet" id="theme-stylesheet">
+	<script src="{{ "/js/highlightjs/highlight.pack.js" | absURL }}"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+{{ end }}
 
 {{- partial "head/css" . -}}
 
