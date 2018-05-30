@@ -2,8 +2,9 @@
 	"folders":
 	[
 		{
-			"path": "."
+			"path": ".",
+			"index_exclude_patterns": ["public"],
+			"folder_exclude_patterns": ["public"]
 		}
 	],
-	"folder_exclude_patterns": ["public/*", "themes/*"]
 }
