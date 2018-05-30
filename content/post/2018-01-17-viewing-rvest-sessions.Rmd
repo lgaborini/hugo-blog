@@ -7,7 +7,10 @@ date: "2018-01-17"
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE, cache = TRUE, autodep = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = FALSE, autodep = TRUE)
+max.chars.default <- 200
+
+source('set_hooks.R', local = FALSE)
 ```
 
 Hadley Wickham's excellent {{<cran rvest>}} R package is an extremely easy way to scrape any HTML page.    
@@ -46,7 +49,7 @@ s_tree
 
 We can see that `s_tree` has class `xml2::xml_document`, but the code is still hidden. The function `as.character` helps:
 
-```{r}
+```{r, max.chars=max.chars.default}
 as.character(s_tree)
 ```
 
@@ -90,7 +93,7 @@ And voilà!
 Suppose, now, that we want to do the same with an `httr` request.   
 E.g., the code from the previous page can be retrieved by:
 
-```{r}
+```{r, max.chars=max.chars.default}
 req <- httr::GET(url)
 httr::content(req, as = 'text')
 ```
