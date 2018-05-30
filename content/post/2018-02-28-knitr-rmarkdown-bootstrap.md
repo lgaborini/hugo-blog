@@ -58,6 +58,11 @@ For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
 Here is some R code with a plot:
 
+```{r cars}
+summary(cars)
+plot(pressure)
+```
+
 ~~~
 
 
