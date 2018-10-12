@@ -25,3 +25,7 @@ pre {
 	/* overflow-x: auto; */                /* Firefox 2 only */
 	/* width: 99%; */		       /* only if needed */
 }
+
+.image-link {
+   border-bottom: 0 !important;
+}
