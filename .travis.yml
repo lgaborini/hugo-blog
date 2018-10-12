@@ -10,6 +10,9 @@ cache:
 r_packages: 
 - blogdown
 - tidyverse
+- kableExtra
+- xml2
+- rvest
 
 before_install:
 - npm install netlify-cli -g
