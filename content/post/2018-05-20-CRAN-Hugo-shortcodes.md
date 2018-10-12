@@ -3,7 +3,7 @@ title: "CRAN Hugo shortcodes"
 draft: false
 categories: ["blog"]
 date: "2018-05-21"
-tags: ["blog"]
+tags: ["blog", "Hugo", "blogdown"]
 ---
 
 Lately, I have been testing [Hugo](https://gohugo.io/) as a blogging platform.
