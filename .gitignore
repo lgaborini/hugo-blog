@@ -2,3 +2,5 @@
 /public/
 *.sublime-workspace
 /blogdown/
+/themes/minimo/.git/
+.Rproj.user

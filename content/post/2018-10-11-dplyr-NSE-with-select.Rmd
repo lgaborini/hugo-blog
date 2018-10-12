@@ -1,0 +1,208 @@
+---
+title: "R: using NSE with select helpers and default arguments"
+draft: false
+categories: ["R"]
+tags: ["R", "snippets", "tidyverse", "NSE"]
+date: "2018-10-11"
+output:
+   blogdown::html_page:
+      default
+---
+   
+   
+```{r setup, include=FALSE}
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(knitr))
+suppressPackageStartupMessages(library(kableExtra))
+
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+## Introduction
+
+Once you adopt the {{<cran tidyverse>}} philosophy into your R code, at a certain time you will start writing functions which invoke [dplyr's non-standard evaluation (NSE)](https://dplyr.tidyverse.org/articles/programming.html) mechanisms.
+
+An example is the following. Consider this dataset:
+
+```{r, eval=FALSE}
+library(tidyverse)
+
+storms
+```
+```{r, echo=FALSE}
+storms %>% 
+   head(10) %>% 
+   kable() %>% 
+   kable_styling(bootstrap_options = c("striped", "hover", "condensed"), font_size = 11, full_width = TRUE)
+```
+
+Suppose that you want to select all columns related to time (i.e. `year`, `month`, `day`, `hour`).      
+Using the standard {{<cran dplyr>}} tools, this is done using `dplyr::select`:
+
+```{r}
+storms_ymdh <- storms %>% select(year, month, day, hour)
+storms_ymd <- storms %>% select(year, month, day)
+storms_ym <- storms %>% select(year, month)
+storms_y <- storms %>% select(year)
+```
+
+This can be incapsulated into a function, as usual:
+```{r}
+fun_select <- function(df) {
+   df %>% select(year, month, day, hour)
+}
+
+identical(storms_ymdh, storms %>% fun_select())
+```
+
+`select` provides several helpers to indicate which variables are kept.    
+An example is `one_of()`:
+
+```{r}
+
+identical(storms_ymdh, 
+          storms %>% select(one_of(c('year', 'month', 'day', 'hour'))) )
+
+fun_select_2 <- function(df) {
+   df %>% select(one_of(c('year', 'month', 'day', 'hour')))
+}
+
+identical(storms_ymdh, storms %>% fun_select_2())
+```
+
+### Adding arguments
+
+Now, we want to generalize the mechanism, and allow the user to decide which variables are selected.   
+
+The easiest adaptation does not use NSE at all, we just pass the vector of columns to select:
+
+```{r}
+fun_select_3 <- function(df, cols) {
+   df %>% select(one_of(cols))
+}
+
+identical(storms_ymdh, storms %>% fun_select_3(c('year', 'month', 'day', 'hour')))
+identical(storms_ymd, storms %>% fun_select_3(c('year', 'month', 'day')))
+```
+
+### Enter the NSE
+
+By reading up on NSE, we can make `fun_select_3` behave as `select` behaves, without explicitly quoting the argument:
+
+```{r}
+fun_select_NSE <- function(df, ...) {
+   dots <- enquos(...)
+   df %>% select(!!!dots)
+}
+
+identical(storms_ymdh, storms %>% fun_select_NSE(year, month, day, hour))
+identical(storms_ymd, storms %>% fun_select_NSE(year, month, day))
+```
+It also works with all `select` helpers:
+```{r}
+# one_of
+identical(storms_ymd, storms %>% fun_select_NSE(one_of(c('year', 'month', 'day'))) )
+identical(storms_ymd, storms %>% select(one_of(c('year', 'month', 'day'))) )
+
+# Column range
+identical(storms_ymdh, storms %>% fun_select_NSE(year:hour))
+```
+
+#### Why it works
+
+The three-dot parameter `...` captures all arguments[^1] of `fun_select_NSE`. 
+Then `enquos` quotes the list, essentially blocking evaluation until an unquoting operation appears.   
+In this case, the evaluation continues when the `!!!` is encountered: that operator inserts the names in place of the quoted variables.
+
+[^1]: *parameter*: what is declared, *argument*: what is actually passed.
+
+Also, `!!!` performs a *splicing* operation: arguments are added as to the surrounding function, separated by commas. (It is similar to Python's unpacking operator `*`). If we were to accept a single argument, instead, we could have just used `enquo` and `!!`.
+
+Notice that the mechanism works for any kind of expression, like `one_of(c('year', 'month'))`.   
+First, `...` are set to be equal to the argument, but it is not evaluated because of `enquos` effect.
+`!!!`, then, writes back the user's expression as `select`'s argument.
+
+To know more about `tidyverse`'s `quo`/`enquo`/quotation/quasiquotation/`!!`, please read [this wonderful post](https://milesmcbain.xyz/the-roots-of-quotation/)!   
+More R-ready material is available in Hadley Wickham's [Advanced R](https://adv-r.hadley.nz/quasiquotation.html), and the [quasiquotation page](https://www.rdocumentation.org/packages/rlang/versions/0.2.1/topics/quasiquotation) in {{<cran rlang>}}-package documentation.
+
+
+### Modifying default parameters with NSE
+
+However, we would like to provide a default parameter which performs some selection.    
+E.g. select only `year` if no argument is passed.
+
+It is very easy to do for the non-NSE functions, if you stick to strings:
+```{r}
+fun_select_3_default <- function(df, cols_default = 'year') {
+   df %>% select(one_of(cols_default))
+}
+
+identical(storms_ymdh, storms %>% fun_select_3_default(c('year', 'month', 'day', 'hour')) )
+identical(storms_y, storms %>% fun_select_3_default() )
+```
+
+If you want to pass more complicated expressions, however, the NSE version is a little trickier:
+
+```{r}
+fun_select_NSE_default <- function(df, ...) {
+      
+   dots <- enquos(...)
+
+   if (length(dots) != 0) {
+      # What is passed if dots are not empty
+      select_var_true <- dots
+   } else {
+      # Default value: year
+      select_var_true <- quo(year)
+   }
+   
+   df %>% select(!!!select_var_true)
+}
+identical(storms_ym, storms %>% fun_select_NSE_default(year, month))
+identical(storms_y, storms %>% fun_select_NSE_default())
+```
+
+We can also use `rlang::quo_is_missing`, which returns `TRUE` if the quosure is empty (in this case, when nothing lies in the place of `...`):
+
+```{r}
+fun_select_NSE_default_2 <- function(df, ...) {
+      
+   dots <- enquos(...)
+
+   if (all(purrr::map_lgl(dots, rlang::quo_is_missing))) {
+      # Default value: year
+      select_var_true <- quo(year)
+   } else {
+      # What is passed if dots are not empty
+      select_var_true <- dots
+   }
+   
+   df %>% select(!!!select_var_true)
+}
+identical(storms_ym, storms %>% fun_select_NSE_default_2(year, month))
+identical(storms_y, storms %>% fun_select_NSE_default_2())
+```
+
+Note that `purrr::map` is necessary, since we are dealing with multiple comma-separated parameters (captured by the dots).
+`rlang::quo_is_missing` works only with a single quosure, `dots` is a list of quosures!
+
+We can also set default parameters which are more complex than a single variable name, e.g., a select helper:
+
+```{r}
+fun_select_NSE_default_3 <- function(df, ...) {
+      
+   dots <- enquos(...)
+
+   if (all(map_lgl(dots, rlang::quo_is_missing))) {
+      # Default value: year, month
+      select_var_true <- quo(one_of(c('year', 'month')))
+   } else {
+      # What is passed if dots are not empty
+      select_var_true <- dots
+   }
+   df %>% select(!!!select_var_true)
+}
+identical(storms_ym, storms %>% fun_select_NSE_default_3())
+```
+
+Thanks for reading!
