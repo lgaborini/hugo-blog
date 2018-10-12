@@ -1,14 +1,23 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
-language: R
+language: r
 sudo: false
 cache:
   packages: true
   directories:
   - $HOME/.npm
 
+r_packages: 
+- blogdown
+- tidyverse
+- kableExtra
+- xml2
+- rvest
+
 before_install:
 - npm install netlify-cli -g
+
+before_script:
 - Rscript -e 'blogdown::install_hugo()'
 
 script:
