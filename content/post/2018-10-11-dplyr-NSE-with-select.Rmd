@@ -4,6 +4,9 @@ draft: false
 categories: ["R"]
 tags: ["R", "snippets", "tidyverse", "NSE"]
 date: "2018-10-11"
+output:
+   blogdown::html_page:
+      default
 ---
    
    
