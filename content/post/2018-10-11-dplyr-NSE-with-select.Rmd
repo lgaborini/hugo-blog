@@ -186,23 +186,45 @@ identical(storms_y, storms %>% fun_select_NSE_default_2())
 Note that `purrr::map` is necessary, since we are dealing with multiple comma-separated parameters (captured by the dots).
 `rlang::quo_is_missing` works only with a single quosure, `dots` is a list of quosures!
 
-We can also set default parameters which are more complex than a single variable name, e.g., a select helper:
+
+For single parameters, one can also skip `...` and use directly a variable which holds the quoted arguments:
 
 ```{r}
-fun_select_NSE_default_3 <- function(df, ...) {
+fun_select_NSE_default_3 <- function(df, select_var) {
+      
+   select_var_true <- enquo(select_var)
+
+   if (rlang::quo_is_missing(select_var_true)) {
+      # Default value: year, month
+      select_var_true <- quo(one_of(c('year', 'month')))
+   }
+   df %>% select(!!select_var_true)
+}
+identical(storms_ym, storms %>% fun_select_NSE_default_3())
+identical(storms_ym, storms %>% fun_select_NSE_default_3(one_of(c('year', 'month'))))
+```
+
+
+We can also set default parameters which are more complex than a single variable name, e.g., a select helper split in two arguments:
+
+```{r}
+fun_select_NSE_default_4 <- function(df, ...) {
       
    dots <- enquos(...)
 
    if (all(map_lgl(dots, rlang::quo_is_missing))) {
       # Default value: year, month
-      select_var_true <- quo(one_of(c('year', 'month')))
+      select_var_true <- quos(one_of(c('year', 'month')), day)
    } else {
       # What is passed if dots are not empty
       select_var_true <- dots
    }
    df %>% select(!!!select_var_true)
 }
-identical(storms_ym, storms %>% fun_select_NSE_default_3())
+identical(storms_ymd, storms %>% fun_select_NSE_default_4(one_of(c('year', 'month')), day))
+identical(storms_ymd, storms %>% fun_select_NSE_default_4())
 ```
+
+Notice the usage of `quos` instead of `quo`: there we are quoting two parameters, not one!
 
 Thanks for reading!

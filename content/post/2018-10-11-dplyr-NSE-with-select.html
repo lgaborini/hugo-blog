@@ -603,22 +603,40 @@ identical(storms_y, storms %&gt;% fun_select_NSE_default_2())
 ## [1] TRUE</code></pre>
 <p>Note that <code>purrr::map</code> is necessary, since we are dealing with multiple comma-separated parameters (captured by the dots).
 <code>rlang::quo_is_missing</code> works only with a single quosure, <code>dots</code> is a list of quosures!</p>
-<p>We can also set default parameters which are more complex than a single variable name, e.g., a select helper:</p>
-<pre class="r"><code>fun_select_NSE_default_3 &lt;- function(df, ...) {
+<p>For single parameters, one can also skip <code>...</code> and use directly a variable which holds the quoted arguments:</p>
+<pre class="r"><code>fun_select_NSE_default_3 &lt;- function(df, select_var) {
+      
+   select_var_true &lt;- enquo(select_var)
+
+   if (rlang::quo_is_missing(select_var_true)) {
+      # Default value: year, month
+      select_var_true &lt;- quo(one_of(c(&#39;year&#39;, &#39;month&#39;)))
+   }
+   df %&gt;% select(!!select_var_true)
+}
+identical(storms_ym, storms %&gt;% fun_select_NSE_default_3())
+## [1] TRUE
+identical(storms_ym, storms %&gt;% fun_select_NSE_default_3(one_of(c(&#39;year&#39;, &#39;month&#39;))))
+## [1] TRUE</code></pre>
+<p>We can also set default parameters which are more complex than a single variable name, e.g., a select helper split in two arguments:</p>
+<pre class="r"><code>fun_select_NSE_default_4 &lt;- function(df, ...) {
       
    dots &lt;- enquos(...)
 
    if (all(map_lgl(dots, rlang::quo_is_missing))) {
       # Default value: year, month
-      select_var_true &lt;- quo(one_of(c(&#39;year&#39;, &#39;month&#39;)))
+      select_var_true &lt;- quos(one_of(c(&#39;year&#39;, &#39;month&#39;)), day)
    } else {
       # What is passed if dots are not empty
       select_var_true &lt;- dots
    }
    df %&gt;% select(!!!select_var_true)
 }
-identical(storms_ym, storms %&gt;% fun_select_NSE_default_3())
+identical(storms_ymd, storms %&gt;% fun_select_NSE_default_4(one_of(c(&#39;year&#39;, &#39;month&#39;)), day))
+## [1] TRUE
+identical(storms_ymd, storms %&gt;% fun_select_NSE_default_4())
 ## [1] TRUE</code></pre>
+<p>Notice the usage of <code>quos</code> instead of <code>quo</code>: there we are quoting two parameters, not one!</p>
 <p>Thanks for reading!</p>
 </div>
 </div>
