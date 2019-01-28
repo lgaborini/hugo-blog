@@ -1,1 +1,1 @@
-R -e "blogdown::serve_site()"
+Rscript -e "blogdown::serve_site()"

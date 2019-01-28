@@ -10,6 +10,7 @@ date: "2018-05-30"
 ```{r setup, include=FALSE}
 library(magrittr)
 knitr::opts_chunk$set(collapse = TRUE)
+set.seed(123)
 
 # source('set_hooks.R', local = FALSE)
 ```
