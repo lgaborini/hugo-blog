@@ -476,7 +476,7 @@ NA
 </tr>
 </tbody>
 </table>
-<p>Suppose that you want to select all columns related to time (i.e. <code>year</code>, <code>month</code>, <code>day</code>, <code>hour</code>).<br />
+<p>Suppose that you want to select all columns related to time (i.e. <code>year</code>, <code>month</code>, <code>day</code>, <code>hour</code>).<br />
 Using the standard {{<cran dplyr>}} tools, this is done using <code>dplyr::select</code>:</p>
 <pre class="r"><code>storms_ymdh &lt;- storms %&gt;% select(year, month, day, hour)
 storms_ymd &lt;- storms %&gt;% select(year, month, day)
@@ -539,11 +539,13 @@ identical(storms_ymdh, storms %&gt;% fun_select_NSE(year:hour))
 ## [1] TRUE</code></pre>
 <div id="why-it-works" class="section level4">
 <h4>Why it works</h4>
-<p>The three-dot parameter <code>...</code> captures all arguments<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> of <code>fun_select_NSE</code>. Then <code>enquos</code> quotes the list, essentially blocking evaluation until an unquoting operation appears.<br />
+<p>The three-dot parameter <code>...</code> captures all arguments<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> of <code>fun_select_NSE</code>.
+Then <code>enquos</code> quotes the list, essentially blocking evaluation until an unquoting operation appears.<br />
 In this case, the evaluation continues when the <code>!!!</code> is encountered: that operator inserts the names in place of the quoted variables.</p>
 <p>Also, <code>!!!</code> performs a <em>splicing</em> operation: arguments are added as to the surrounding function, separated by commas. (It is similar to Python’s unpacking operator <code>*</code>). If we were to accept a single argument, instead, we could have just used <code>enquo</code> and <code>!!</code>.</p>
 <p>Notice that the mechanism works for any kind of expression, like <code>one_of(c('year', 'month'))</code>.<br />
-First, <code>...</code> are set to be equal to the argument, but it is not evaluated because of <code>enquos</code> effect. <code>!!!</code>, then, writes back the user’s expression as <code>select</code>’s argument.</p>
+First, <code>...</code> are set to be equal to the argument, but it is not evaluated because of <code>enquos</code> effect.
+<code>!!!</code>, then, writes back the user’s expression as <code>select</code>’s argument.</p>
 <p>To know more about <code>tidyverse</code>’s <code>quo</code>/<code>enquo</code>/quotation/quasiquotation/<code>!!</code>, please read <a href="https://milesmcbain.xyz/the-roots-of-quotation/">this wonderful post</a>!<br />
 More R-ready material is available in Hadley Wickham’s <a href="https://adv-r.hadley.nz/quasiquotation.html">Advanced R</a>, and the <a href="https://www.rdocumentation.org/packages/rlang/versions/0.2.1/topics/quasiquotation">quasiquotation page</a> in {{<cran rlang>}}-package documentation.</p>
 </div>
@@ -610,7 +612,8 @@ identical(storms_ym, storms %&gt;% fun_select_NSE_default_2(year, month))
 ## [1] TRUE
 identical(storms_y, storms %&gt;% fun_select_NSE_default_2())
 ## [1] TRUE</code></pre>
-<p>Note that <code>purrr::map</code> is necessary, since we are dealing with multiple comma-separated parameters (captured by the dots). <code>rlang::quo_is_missing</code> works only with a single quosure, <code>dots</code> is a list of quosures!</p>
+<p>Note that <code>purrr::map</code> is necessary, since we are dealing with multiple comma-separated parameters (captured by the dots).
+<code>rlang::quo_is_missing</code> works only with a single quosure, <code>dots</code> is a list of quosures!</p>
 <p>For single parameters, one can also skip <code>...</code> and use directly a variable which holds the quoted arguments:</p>
 <pre class="r"><code>fun_select_NSE_default_3 &lt;- function(df, select_var) {
       
@@ -651,6 +654,6 @@ identical(storms_ymd, storms %&gt;% fun_select_NSE_default_4())
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p><em>parameter</em>: what is declared, <em>argument</em>: what is actually passed.<a href="#fnref1">↩</a></p></li>
+<li id="fn1"><p><em>parameter</em>: what is declared, <em>argument</em>: what is actually passed.<a href="#fnref1" class="footnote-back">↩</a></p></li>
 </ol>
 </div>

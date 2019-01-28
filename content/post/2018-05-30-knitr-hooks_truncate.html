@@ -48,7 +48,7 @@ long_string
 <p>As detailed by the <a href="https://yihui.name/knitr/hooks/">knitr documentation</a>, <code>knitr</code> provides a set of functions to transparently modify a chunk, without changing the inner contents, but specifying chunk options. Such functions are called <strong>hooks</strong>.</p>
 <p>Knitr hooks can be of two types: chunk hooks, output hooks and option hooks.<br />
 To our purpose, we are interested in <strong>output hooks</strong>.</p>
-<p>These are functions which, in general, take two parameters: the chunk output, and the chunk options (e.g. <code>fig.width</code>).</p>
+<p>These are functions which, in general, take two parameters: the chunk output, and the chunk options (e.g. <code>fig.width</code>).</p>
 <p>From the <a href="https://yihui.name/knitr/hooks/#output-hooks">documentation</a>, an output hook can deal with 8 different types of outputs:</p>
 <ul>
 <li><em>source</em>: the source code</li>
@@ -129,7 +129,7 @@ matrix(rnorm(m*n), m, n)
 <pre class="r"><code>long_string &lt;- paste(rep(letters, 30), collapse = &#39;&#39;)
 long_string
 ## [1] &quot;abcdefghijkl  ...</code></pre>
-<p>Notice that the code is not part of the character count (it is an output hook on the <em>output</em>!), but the prompt and the whitespaces are (up to <code>&quot;...&quot;</code>).</p>
+<p>Notice that the code is not part of the character count (it is an output hook on the <em>output</em>!), but the prompt and the whitespaces are (up to <code>"..."</code>).</p>
 <hr />
 <p>And, of course, both truncations can be combined.<br />
 E.g., let’s see the first chunk to 3 lines and 160 characters:</p>

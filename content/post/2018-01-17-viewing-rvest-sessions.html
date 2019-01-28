@@ -41,7 +41,8 @@ s_tree
 <p>We can see that <code>s_tree</code> has class <code>xml2::xml_document</code>, but the code is still hidden. The function <code>as.character</code> helps:</p>
 <pre class="r"><code>as.character(s_tree)
 ## [1] &quot;&lt;!DOCTYPE html&gt;\n&lt;html lang=\&quot;en\&quot;&gt;\n&lt;head&gt;\n&lt;meta http-equiv=\&quot;Content-Type\&quot; content=\&quot;text/html; charset=UTF-8\&quot;&gt;\n&lt;meta charset=\&quot;UTF-8\&quot;&gt;\n&lt;title&gt;httpbin.org&lt;/title&gt;\n&lt;link href=\&quot;https:/  ...</code></pre>
-<p>Here it is! Now we want to view it on a browser.</p>
+<p>Here it is!
+Now we want to view it on a browser.</p>
 <p>R <code>base</code> package contains the function <code>browseURL()</code>, which however opens the browser to an URL or a file. So we have to store it on disk.</p>
 <p>Let’s create a function which does all of this: getting a <code>session</code> object, extracting the HTML code, casting to character, writing it to disk and taking care of cleaning the output.</p>
 <pre class="r"><code>view_rvest &lt;- function(s) {
