@@ -1,0 +1,156 @@
+---
+title: "Using plotmath in ggplot objects"
+author: "Lorenzo Gaborini"
+date: "2019-01-27"
+categories: ["R"]
+tags: ["R", "snippets", "tidyverse", "ggplot"]
+output:    
+   blogdown::html_page:
+      default
+draft: true
+---
+
+
+
+<p>This one will be quick.</p>
+<p>I always struggled to use <a href="https://stat.ethz.ch/R-manual/R-devel/library/grDevices/html/plotmath.html">R math expressions</a> in ggplot objects.<br />
+The API looks quite inconsistent, as the specification to activate plotmath parsing changes depending on which object is to be plotted.</p>
+<p>So here’s a short post to resume a few techniques and a few tips!</p>
+<p>More information can be found in the <a href="https://github.com/tidyverse/ggplot2/wiki/Plotmath"><code>ggplot2</code> wiki</a>.</p>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<p>Let’s generate some data: this is a standard data frame, which contains expressions that can be interpreted as plotmath.</p>
+<pre class="r"><code>
+library(dplyr)
+library(ggplot2)
+
+df &lt;- data.frame(
+   var = c(&#39;alpha&#39;, &#39;beta&#39;, &#39;X[1]&#39;, &#39;X[2]&#39;, &#39;X[3]&#39;), 
+   power = paste0(&#39;y^&#39;, 1:5),
+   value = 1:5, 
+   letter = c(rep(&#39;alpha&#39;, 3), rep(&#39;omega&#39;, 2))
+)
+df
+##     var power value letter
+## 1 alpha   y^1     1  alpha
+## 2  beta   y^2     2  alpha
+## 3  X[1]   y^3     3  alpha
+## 4  X[2]   y^4     4  omega
+## 5  X[3]   y^5     5  omega</code></pre>
+<p>For example, for a given statistical unit one might have observed the values in <code>df$value</code> corresponding to the variables in <code>df$var</code>. (disregard the other columns, for now).<br />
+To put that in tidy form, one would have had the following data frame:</p>
+<pre class="r"><code>df_simple &lt;- df$value %&gt;% as.matrix() %&gt;% t() %&gt;% as.data.frame()
+colnames(df_simple) &lt;- df$var
+df_simple
+##   alpha beta X[1] X[2] X[3]
+## 1     1    2    3    4    5</code></pre>
+<p>Notice that the columns are not easily accessible, one has to use the backticks to escape the <code>[</code> operator:</p>
+<pre class="r"><code>df_simple$alpha
+## [1] 1
+df_simple$`X[1]`
+## [1] 3</code></pre>
+</div>
+<div id="plotting-the-problem" class="section level2">
+<h2>Plotting the problem</h2>
+<p>The previous data frame could be plotted using standard ggplot tools (notice again the backticks):</p>
+<pre class="r"><code>ggplot(df_simple) + geom_point(aes(x = `X[1]`, y = `X[2]`))</code></pre>
+<p><img src="/post/2019-01-27-plotmath-in-ggplot2_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Looks good (ok, it is only one point, but the example holds for any data frame with more rows).<br />
+However, the axes are poorly named.</p>
+<p>The same happens if we use the first data frame to produce a more complex plot, using more ggplot functions.<br />
+An example with facets, labels and discrete scales:</p>
+<pre class="r"><code>
+ggplot(df) +
+   facet_wrap(~ letter) +
+   geom_point(aes(x = var, y = value, col = power)) +
+   geom_label(aes(x = var, y = value, col = power, label = power), show.legend = FALSE)</code></pre>
+<p><img src="/post/2019-01-27-plotmath-in-ggplot2_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Again, all labels could be interpreted as plotmath expressions.</p>
+</div>
+<div id="the-solution" class="section level2">
+<h2>The solution</h2>
+<div id="facet-labels" class="section level3">
+<h3>Facet labels</h3>
+<p>To interpret facet labels as plotmath expressions, ggplot2 provides the function <code>label_parsed</code>:</p>
+<pre class="r"><code>
+ggplot(df) +
+   facet_wrap(~ letter, labeller = label_parsed) +
+   geom_point(aes(x = var, y = value, col = power)) +
+   geom_label(aes(x = var, y = value, col = power, label = power), show.legend = FALSE)</code></pre>
+<p><img src="/post/2019-01-27-plotmath-in-ggplot2_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<div id="text-and-label-geoms" class="section level3">
+<h3>Text and label geoms</h3>
+<p>This is easy: <code>geom_label</code> and <code>geom_text</code> support the argument <code>parse = TRUE</code>:</p>
+<pre class="r"><code>ggplot(df) +
+   facet_wrap(~ letter, labeller = label_parsed) +
+   geom_point(aes(x = var, y = value, col = power)) +
+   geom_label(aes(x = var, y = value, col = power, label = power), show.legend = FALSE, parse = TRUE)</code></pre>
+<p><img src="/post/2019-01-27-plotmath-in-ggplot2_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="discrete-scales-axis-ticks-color-values" class="section level3">
+<h3>Discrete scales: axis ticks, color values</h3>
+<p>Discrete scales are more complicated: one can supply a vector of breaks (i.e. numeric values specifying where the scale is broken, in data units), and a vector of labels (a character vector which is used to label each break).</p>
+<pre class="r"><code>
+x_breaks &lt;- levels(df$var)
+x_labels &lt;- parse(text = x_breaks)
+
+ggplot(df) +
+   facet_wrap(~ letter, labeller = label_parsed) +
+   geom_point(aes(x = var, y = value, col = power)) +
+   geom_label(aes(x = var, y = value, col = power, label = power), show.legend = FALSE, parse = TRUE) +
+   scale_x_discrete(breaks = x_breaks, label = x_labels)</code></pre>
+<p><img src="/post/2019-01-27-plotmath-in-ggplot2_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>A much faster alternative is to use the fact that a function can be passed as the argument <code>label</code> for discrete scales.
+This function “takes the breaks as input and returns labels as output”.<br />
+So let’s define the function <code>label_parse</code>:</p>
+<pre class="r"><code>label_parse &lt;- function(breaks) {
+   parse(text = breaks)
+}</code></pre>
+<p>The previous example can be highly semplified:</p>
+<pre class="r"><code>ggplot(df) +
+   facet_wrap(~ letter, labeller = label_parsed) +
+   geom_point(aes(x = var, y = value, col = power)) +
+   geom_label(aes(x = var, y = value, col = power, label = power), show.legend = FALSE, parse = TRUE) +
+   scale_x_discrete(label = label_parse)</code></pre>
+<p><img src="/post/2019-01-27-plotmath-in-ggplot2_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>It’s the same also for discrete color scales:</p>
+<pre class="r"><code>ggplot(df) +
+   facet_wrap(~ letter, labeller = label_parsed) +
+   geom_point(aes(x = var, y = value, col = power)) +
+   geom_label(aes(x = var, y = value, col = power, label = power), show.legend = FALSE, parse = TRUE) +
+   scale_x_discrete(label = label_parse) +
+   scale_color_discrete(label = label_parse)</code></pre>
+<p><img src="/post/2019-01-27-plotmath-in-ggplot2_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+</div>
+<div id="more-complicated-expressions" class="section level2">
+<h2>More complicated expressions</h2>
+<p>For expressions which merge plotmath and plain text, a shortcut is not simple, one has to use some more plotmath operators like <code>paste</code>.<br />
+See <a href="https://trinkerrstuff.wordpress.com/2018/03/15/2246/">this</a> (or many others!) blog post for examples.</p>
+<p>Here, in <code>df$exp</code> and <code>df$var</code> I use the <code>~</code> operator to insert a space between a text string (in double quotes) and math symbols (this is equivalent to the <code>paste</code> operator):</p>
+<pre class="r"><code>df_2 &lt;- data.frame(
+   var = c(&#39;&quot;Variable&quot; ~ X[1]&#39;, &#39;&quot;Variable&quot; ~ X[2]&#39;, &#39;&quot;Variable&quot; ~ X[3]&#39;, &#39;&quot;Variable&quot; ~ X[4]&#39;),
+   exp = c(&#39;&quot;Linear:&quot; ~ a*X + b&#39;, 
+           &#39;&quot;Quadratic:&quot; ~ a*X^2 + b*X + c&#39;, 
+           &#39;&quot;Mean:&quot; ~ mu&#39;, 
+           &#39;&quot;Bilinear:&quot; ~ a[1]*X + a[2]*Y&#39;),
+   val = 1:4
+)
+
+ggplot(df_2) +
+   geom_point(aes(x = var, y = val)) +
+   geom_label(aes(x = var, y = val, label = exp), show.legend = FALSE, parse = TRUE) +
+   scale_x_discrete(label = label_parse)</code></pre>
+<p><img src="/post/2019-01-27-plotmath-in-ggplot2_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>If one wants to insert actual values for parameters, then I think one is forced to build the expression manually, or to use <code>bquote</code>:</p>
+<pre class="r"><code>ext_val &lt;- 5
+
+ggplot(df) +
+   facet_wrap(~ letter, labeller = label_parsed) +
+   geom_point(aes(x = var, y = value, col = power)) +
+   geom_label(aes(x = var, y = value, col = power, label = paste(&quot;Label:&quot;, power, &quot;==&quot;, ext_val)), show.legend = FALSE, parse = TRUE) +
+   scale_x_discrete(label = label_parse) +
+   scale_color_discrete(label = label_parse)</code></pre>
+<p><img src="/post/2019-01-27-plotmath-in-ggplot2_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
